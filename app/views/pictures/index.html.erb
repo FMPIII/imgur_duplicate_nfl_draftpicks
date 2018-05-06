@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>2018 Top NFL Draft Picks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Photo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pictures.each do |picture| %>
+      <tr>
+        <td><%= picture.title %></td>
+        <td><%= image_tag picture.url, :class => "football_photos" %></td>
+        <td><%= link_to 'Show', picture %></td>
+        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Upload A Link To Your Favorite 2018 Draft Pick', new_picture_path %>
